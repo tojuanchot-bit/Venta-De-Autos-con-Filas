@@ -7,6 +7,9 @@ public class Metodos {
         boolean  continuar = true;
         while (continuar){
             Objautos auto = new Objautos();
+
+            System.out.println("Registro de vehículos. ");
+            System.out.println("-------------------------------------");
             System.out.println("Ingrese la marca del vehículo");
             auto.setMarca(sc.next());
             System.out.println("Ingrese el modelo del vehiculo");
@@ -16,7 +19,7 @@ public class Metodos {
             System.out.println("ingrese el estado del vechiulo (Nuevo/Usado)");
             auto.setEstado(sc.next());
             System.out.println("Disponible para entrega inmediante 1) Si / 2) No");
-            int n=sc.nextInt();
+            int n = sc.nextInt();
             if (n == 1) {
                 auto.setTiempoEspera(0);
                 
@@ -25,9 +28,17 @@ public class Metodos {
                 System.out.println("Ingrese los dias de entrega.");
                 auto.setTiempoEspera(sc.nextInt());
             }
+            System.out.println(auto.getMarca() + " " + auto.getModelo() + " Registrado correctamente");
+            System.out.println("¿Desea registrar un nuevo vehículo 1) Si / 2) no?");
+            int m = sc.nextInt();
+            if (m == 2) {
+                continuar = false;
+            }
 
         }
         return pila;
     }
+
+
     
 }
