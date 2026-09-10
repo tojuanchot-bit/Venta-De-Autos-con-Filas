@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.util.Stack;
 
-
 public class Metodos {
     public Stack<Objautos> RegistrarAutos(Stack<Objautos> pila, Scanner sc){
         boolean  continuar = true;
@@ -16,13 +15,13 @@ public class Metodos {
             auto.setModelo(sc.next());
             System.out.println("Ingrese el año del vehiculo");
             auto.setAnio(sc.nextInt());
-            System.out.println("ingrese el estado del vechiulo (Nuevo/Usado)");
+            System.out.println("ingrese el estado del vehiulo (Nuevo/Usado)");
             auto.setEstado(sc.next());
             System.out.println("Disponible para entrega inmediante 1) Si / 2) No");
             int n = sc.nextInt();
             if (n == 1) {
                 auto.setTiempoEspera(0);
-                
+
             } else {
 
                 System.out.println("Ingrese los dias de entrega.");
@@ -35,10 +34,27 @@ public class Metodos {
                 continuar = false;
             }
 
+        pila.push(auto);
         }
         return pila;
     }
 
+public void MostrarPila (Stack<Objautos> pila){
 
-    
+        if(pila.isEmpty()){
+            System.out.println("Inventario vacio");
+            System.out.println("--------------------");
+        } else {
+            for (Objautos auto : pila) {
+                int contador = 1;
+                System.out.println("Vehiculo " + contador);
+                System.out.println("Marca: " + auto.getMarca());
+                System.out.println("Modelo: " + auto.getModelo());
+                System.out.println("Estado: " + auto.getEstado());
+                System.out.println("Año: " + auto.getAnio());
+                System.out.println("Tiempo de espera: "+ auto.getTiempoEspera());
+                System.out.println("Valor: " + auto.getPrecio());
+            }
+        }
+    }
 }
