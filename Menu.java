@@ -10,7 +10,8 @@ public class Menu {
         int opt;
         Metodos m = new Metodos();
         Stack<Objautos> pila = new Stack<Objautos>();
-        // Stack<Objautos> pilaVendidos = new Stack<Objautos>();
+        Stack<Objautos> pilaVendidos = new Stack<Objautos>();
+        
 
         while (continuar) {
 
@@ -36,16 +37,16 @@ public class Menu {
                 case 2:
                 m.MostrarPila(pila);
                 break;
-                /* case 3:
-                 * m.VenderAuto(pila, pilaVendidos, sc);
-                 * break;
-                 * case 4:
-                 * m.MostrarVendidos(pilaVendidos);
-                 * break;
-                 * case 5:
-                 * m.MostrarDisponibles(pila);
-                 * break;
-                 */
+                case 3:
+                    pila = m.VenderAuto(pila, pilaVendidos, sc);
+                    break;
+                case 4:
+                    m.MostrarPila(pilaVendidos);
+                    break;
+                //case 5:
+                 //m.MostrarDisponibles(pila);
+                 // break;
+                 
                 case 6:
                     continuar = false;
                     JOptionPane.showMessageDialog(null, "¡Hasta Luego!");
